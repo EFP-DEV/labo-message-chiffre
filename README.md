@@ -31,7 +31,7 @@ On ouvre le dossier local `labo-message-chiffre` dans VS Code. Deux fichiers son
 - [message-chiffre.html](./message-chiffre.html) contient les deux formulaires et charge le fichier JavaScript.
 - [rotation-alphabet.js](./rotation-alphabet.js) est vide au départ. On y écrira les actions des boutons.
 
-Depuis le dossier local, on ouvre `message-chiffre.html` dans le navigateur. Le premier formulaire affiche déjà `Le zoo !` et la rotation `13`. Dans le second, le champ « Texte chiffré reçu » est vide.
+Depuis le dossier local, on ouvre `message-chiffre.html` dans le navigateur. Dans le premier formulaire, le champ « Phrase à chiffrer » est vide et la rotation vaut `13`. Dans le second, le champ « Texte chiffré reçu » est vide.
 
 <a id="boutons"></a>
 
