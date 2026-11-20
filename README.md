@@ -1,85 +1,25 @@
 # Séance 7 — Message chiffré
 
-
 Pour chiffrer un message, on décale uniquement les lettres de `a` à `z` et de `A` à `Z`. On recopie tous les autres caractères tels quels. Avec un décalage d’une place, `Café 4 !` devient `Dbgé 4 !` : le `C` devient `D`, le `a` devient `b` et le `f` devient `g`.
 
+## 1. Récupérer le projet et ouvrir la page de départ
 
-## 1. Faire un fork de `labo-message-chiffre`
+Sur GitHub, on repère le propriétaire du dépôt en haut de la page. Si c’est `EFP-DEV`, on clique sur **Fork**, on choisit le compte personnel, on garde le nom `labo-message-chiffre` et on confirme avec **Create fork**. Quand le nom du compte personnel précède `labo-message-chiffre`, on se trouve sur le fork.
 
-On ouvre le dépôt [EFP-DEV/labo-message-chiffre](https://github.com/EFP-DEV/labo-message-chiffre). On clique sur **Fork**, on choisit le compte personnel et on conserve le nom `labo-message-chiffre`. On confirme avec **Create fork**.
+Si le fork n’a pas encore été cloné sur l’ordinateur, on ouvre **Code → HTTPS** sur la page du fork et on copie l’adresse. Dans le terminal, depuis le dossier parent des projets du cours, on saisit `git clone`, un espace, puis on colle l’adresse et on exécute la commande.
 
-Sur la page du fork, on vérifie que le nom du compte personnel précède `labo-message-chiffre`. On ouvre **Code** et on copie l’adresse **HTTPS**. Dans le terminal, depuis le dossier parent des projets du cours, on saisit `git clone`, un espace, puis l’adresse copiée. On exécute la commande et on ouvre le dossier `labo-message-chiffre` dans VS Code.
+On ouvre le dossier local `labo-message-chiffre` dans VS Code. Deux fichiers sont fournis à sa racine.
 
-À la racine du clone, `message-chiffre.html` contient les deux formulaires. Le fichier `rotation-alphabet.js`, placé à côté, est vide au départ. C’est dans ce fichier qu’on écrira les actions des boutons.
+- [message-chiffre.html](./message-chiffre.html) contient les deux formulaires et charge le fichier JavaScript.
+- [rotation-alphabet.js](./rotation-alphabet.js) est vide au départ. On y écrira les actions des boutons.
 
-<details>
-<summary>HTML de départ de message-chiffre.html</summary>
-
-```html
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Message chiffré</title>
-  <script src="rotation-alphabet.js" defer></script>
-  <style>
-    body {
-      max-width: 38rem;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      font: 1rem/1.5 system-ui, sans-serif;
-    }
-    label { display: block; }
-    input, textarea, button { font: inherit; }
-    input[type="text"], textarea { box-sizing: border-box; width: 100%; }
-    li { white-space: pre-wrap; overflow-wrap: anywhere; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Message chiffré</h1>
-
-    <form id="envoi">
-      <h2>Chiffrer une phrase</h2>
-      <p>
-        <label for="phrase">Phrase à chiffrer</label>
-        <input type="text" id="phrase" value="Le zoo !">
-      </p>
-      <p>
-        <label for="rotation">Rotation de 1 à 25</label>
-        <input type="number" id="rotation" min="1" max="25" value="13">
-      </p>
-      <button type="button" id="chiffrer">Chiffrer</button>
-      <p>
-        <label for="message-chiffre">Texte chiffré à copier et à envoyer</label>
-        <input type="text" id="message-chiffre" readonly>
-      </p>
-    </form>
-
-    <form id="reception">
-      <h2>Retrouver la rotation</h2>
-      <p>
-        <label for="message-recu">Texte chiffré reçu</label>
-        <textarea id="message-recu" rows="2"></textarea>
-      </p>
-      <button type="button" id="dechiffrer">Déchiffrer</button>
-      <ol id="lectures" start="0"></ol>
-    </form>
-  </main>
-</body>
-</html>
-```
-
-</details>
-
-On ouvre `message-chiffre.html` dans le navigateur. Les deux formulaires apparaissent. La balise `script` charge `rotation-alphabet.js`.
+Depuis le dossier local, on ouvre `message-chiffre.html` dans le navigateur. Le premier formulaire affiche déjà `Le zoo !` et la rotation `13`. Dans le second, le champ « Texte chiffré reçu » est vide.
 
 <a id="boutons"></a>
 
 ## 2. Activer les boutons « Chiffrer » et « Déchiffrer »
 
-On ouvre la page et la console du navigateur, puis on clique sur chacun des deux boutons. Pour l’instant, aucun des clics n’affiche de message.
+On ouvre la console de cette page, puis on clique sur chacun des deux boutons. Pour l’instant, aucun des clics n’affiche de message.
 
 Dans `rotation-alphabet.js`, on écrit deux fonctions. La fonction `chiffrer` affiche `"chiffrer"` avec `console.log`. La fonction `dechiffrer` affiche `"dechiffrer"`. On associe chaque fonction au `onclick` du bouton correspondant.
 
