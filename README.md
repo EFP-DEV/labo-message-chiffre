@@ -1,6 +1,24 @@
 # Séance 7 — Message chiffré
 
-Pour chiffrer un message, on décale uniquement les lettres de `a` à `z` et de `A` à `Z`. On recopie tous les autres caractères tels quels. Avec un décalage d’une place, `Café 4 !` devient `Dbgé 4 !` : le `C` devient `D`, le `a` devient `b` et le `f` devient `g`.
+ROT13 permet, par exemple, de publier la solution d’une énigme sans la révéler au premier regard. Son nom désigne une rotation de treize places dans l’alphabet. Pour voir quelles lettres se correspondent, on dispose les 26 lettres sur deux lignes de même longueur.
+
+```text
+A B C D E F G H I J K L M
+N O P Q R S T U V W X Y Z
+```
+
+Pour transformer un message, on remplace chaque lettre par celle qui occupe la même colonne sur l’autre ligne. Ainsi, `A` devient `N` et `N` devient `A`. Chaque paire se lit dans les deux sens.
+
+Pourquoi parle-t-on de **rotation** ? On écrit cette fois l’alphabet entier sur chacune des deux lignes. Sur la seconde, on déplace les treize premières lettres à la fin, en conservant leur ordre. C’est un décalage circulaire.
+
+```text
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+NOPQRSTUVWXYZABCDEFGHIJKLM
+```
+
+Pour chiffrer, on repère la lettre sur la première ligne et on lit celle du dessous. **Pourquoi 13 ?** Parce que 13 est la moitié de 26. Si on décale la seconde ligne de treize places encore une fois, elle retrouve son ordre initial. La même opération permet donc de chiffrer le message et de retrouver le texte d’origine.
+
+Dans l’exercice, on peut aussi choisir un autre décalage. On décale uniquement les lettres de `a` à `z` et de `A` à `Z`. On recopie tous les autres caractères tels quels. Avec un décalage d’une place, `Café 4 !` devient `Dbgé 4 !` : le `C` devient `D`, le `a` devient `b` et le `f` devient `g`.
 
 ## 1. Récupérer le projet et ouvrir la page de départ
 
