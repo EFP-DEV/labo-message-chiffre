@@ -1,4 +1,4 @@
-# Séance 7 — Message chiffré
+# LABO Message chiffré
 
 ROT13 permet, par exemple, de publier la solution d’une énigme sans la révéler au premier regard. Son nom désigne une rotation de treize places dans l’alphabet. Pour voir quelles lettres se correspondent, on dispose les 26 lettres sur deux lignes de même longueur.
 
